@@ -1,0 +1,68 @@
+
+
+.topbar {
+  position: fixed;                
+  top: 0;
+  left: 0;                         /* ⭐ ชิดซ้ายสุด */
+  right: 0;                        /* ⭐ เต็มความกว้าง */
+
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 260px;
+  padding: 0 18px;
+  background: linear-gradient(90deg, #0b0f5c 0%, #1a1fb0 100%);
+  color: #fff;
+
+  z-index: 100;                    /*⭐ อยู่เหนือ sidebar*/
+}
+
+
+
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.topbar-title {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.topbar-pill {
+  margin-left: 8px;
+  font-size: 12px;
+  opacity: 0.9;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.topbar-right {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+}

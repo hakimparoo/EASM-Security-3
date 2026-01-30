@@ -1,0 +1,181 @@
+ .app-shell {
+  min-height: 100vh;
+  display: flex;
+  background: #f6f7fb;
+}
+
+/* ✅ พื้นที่ main */
+.app-main {
+  flex: 1;
+  min-width: 0;
+  transition: margin-left 0.25s ease;
+}
+
+/* ✅ desktop: ถ้า sidebar เปิด ให้ content ขยับ */
+@media (min-width: 1025px) {
+  .app-main.shift {
+    margin-left: 260px;
+  }
+  .app-main.full {
+    margin-left: 80px;
+  }
+}
+
+.app-content {
+  padding: 24px;
+}
+
+/* ✅ backdrop ใช้ตอน overlay (จอเล็ก) */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 49;
+}
+
+.sidebar-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ✅ จอใหญ่ไม่ต้องใช้ backdrop */
+@media (min-width: 1025px) {
+  .sidebar-backdrop {
+    display: none;
+  }
+} */
+
+
+
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #0b0f5c 0%, #1a1fb0 100%);
+  color: #fff;
+  z-index: 50;
+  transition: width 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ✅ กว้างตอนเปิด */
+.sidebar.open {
+  width: 260px;
+}
+
+/* ✅ ย่อเป็นไอคอนตอน collapsed (เฉพาะ desktop ใช้) */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* ✅ mobile/tablet: ทำเป็น slide-in overlay */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 260px;
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+}
+
+.sidebar-top {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-brand {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ✅ ปุ่มปิดจะโชว์บนจอเล็ก */
+.sidebar-close {
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 1024px) {
+  .sidebar-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.sidebar-nav {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.icon {
+  width: 26px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* ✅ ซ่อน label ตอน collapsed (desktop) */
+.sidebar.collapsed .label {
+  display: none;
+}
+
+.sidebar-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mini-hint {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ✅ collapsed: ซ่อน footer text */
+.sidebar.collapsed .mini-hint {
+  display: none;
+}

@@ -1,0 +1,9 @@
+.auth-layout{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: radial-gradient(1200px 600px at 30% 20%, #1b3e8a 0%, #0b0c5f 60%, #070745 100%);
+  padding: 24px;
+}
+
